@@ -86,7 +86,7 @@ export class utils {
   }
   async waitForElemetToBeVisible(element: Locator) {
     try {
-      await element.waitFor({ state: "visible" });
+      await element.waitFor({ state: "visible", timeout: 2000});
       return true;
     } catch {
       return false;

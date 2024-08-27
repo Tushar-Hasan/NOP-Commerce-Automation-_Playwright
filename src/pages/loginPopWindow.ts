@@ -37,7 +37,7 @@ export class LoginPage {
     await this.locatorLogin.login_RememberMeCheckBox.check();
   }
   async isLoggedIn() {
-    let element = await this.locatorLogin.logOutBtn;
+    let element = this.locatorLogin.logOutBtn;
     return this.utils_.waitForElemetToBeVisible(element);
   }
 }

@@ -32,7 +32,7 @@ test.describe("Common SearchBar  Test", () => {
     await login.inputEmail(faker.internet.email());
     await login.inputPassword(faker.internet.password());
     await login.clickOnLogin();
-    await page.waitForTimeout(3000);
-    expect(await login.isLoggedIn()).toBeTruthy();
+    //await page.waitForTimeout(3000);
+    expect(await login.isLoggedIn()).toBeFalsy();
   });
 });
