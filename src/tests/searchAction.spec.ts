@@ -5,13 +5,13 @@ import { utils } from "../utils/utils";
 let utils_: utils;
 let search: searchBar;
 
-let searchPageUrl;
+let searchPageUrl: string;
 let blankSearchKeyword = "";
 let spaceSearchKeyword = "   ";
 let invalidSearchKeyword = "zxcv";
 let validSearchKeyword = "Samsung";
 
-test.describe("Ragistration Page", () => {
+test.describe("Common SearchBar  Test", () => {
   test.beforeEach(async ({ page, baseURL }) => {
     utils_ = new utils(page);
     await page.goto(baseURL + "");
@@ -22,7 +22,7 @@ test.describe("Ragistration Page", () => {
     await search.waitForNotificationWindow();
     await search.declineNotification();
     await search.doSearch(validSearchKeyword);
-    console.log(await page.title());
+    //console.log(await page.title());
     expect(page.url()).toBe(baseURL + "search?q=" + validSearchKeyword);
   });
 
@@ -30,20 +30,22 @@ test.describe("Ragistration Page", () => {
     await search.waitForNotificationWindow();
     await search.declineNotification();
     await search.doSearch(invalidSearchKeyword);
-    console.log(await page.title());
+    //console.log(await page.title());
     expect(page.url()).toBe(baseURL + "search?q=" + invalidSearchKeyword);
   });
 
   test("search with blank keyword", async ({ page, baseURL }) => {
     await search.waitForNotificationWindow();
     await search.declineNotification();
-    let dialogMessage; // = await utils_.acceptDialog();
+    let dialogMessage: string = "";
     page.on("dialog", async (dialog) => {
       dialogMessage = dialog.message();
       await dialog.accept();
     });
     await search.doSearch(blankSearchKeyword);
-    console.log(await page.title());
+    //let dialogMessage: string = await utils_.acceptDialog();
+    //console.log("Message : ", dialogMessage);
+    //console.log(await page.title());
     expect.soft(page.url()).toBe(baseURL);
     expect.soft(dialogMessage).toBe("Please enter some search keyword");
   });
@@ -52,7 +54,7 @@ test.describe("Ragistration Page", () => {
     await search.waitForNotificationWindow();
     await search.declineNotification();
     await search.doSearch(spaceSearchKeyword);
-    console.log(await page.title());
+    //console.log(await page.title());
     expect.soft(page.url()).not.toBe(baseURL);
   });
 });

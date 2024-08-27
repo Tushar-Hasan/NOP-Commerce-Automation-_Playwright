@@ -1,6 +1,7 @@
 import { Page, Locator } from "@playwright/test";
 
 export class locator_Login {
+  readonly logOutBtn: Locator;
   readonly loginButton: Locator;
   readonly login_PopWindow: Locator;
   readonly login_emailInput: Locator;
@@ -8,9 +9,11 @@ export class locator_Login {
   readonly login_RememberMeCheckBox: Locator;
 
   constructor(page: Page) {
-    this.login_emailInput = page.locator("//input[@id='Email']");
+    this.login_emailInput = page.getByLabel("Email:");
     this.loginButton = page.locator("//button[normalize-space()='Log in']");
     this.login_RememberMeCheckBox = page.locator("//input[@id='RememberMe']");
     this.login_PopWindow = page.locator("//button[normalize-space()='Log in']");
+    this.login_passwordInput = page.getByLabel("Password:");
+    this.logOutBtn = page.locator("//a[@class='ico-logout']");
   }
 }

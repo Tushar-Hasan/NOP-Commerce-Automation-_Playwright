@@ -13,6 +13,7 @@ export class searchBar {
     await this.locSearchBar.searchBarInputField.fill(input);
     await this.locSearchBar.searchButton.click();
   }
+
   async acceptNotification() {
     await this.locSearchBar.acceptNotification.click();
   }
@@ -22,5 +23,4 @@ export class searchBar {
   async waitForNotificationWindow() {
     await this.locSearchBar.notificationWindow.waitFor({ state: "visible" });
   }
-  
 }

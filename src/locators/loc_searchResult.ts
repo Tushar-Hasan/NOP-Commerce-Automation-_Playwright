@@ -22,7 +22,7 @@ export class loc_searchResult {
     this.noSearchResultMsg = page.locator("//div[@class='no-result']");
     this.category = page.locator("//select[@id='cid']/option");
     this.manufacturerList = page.locator("//select[@id='mid']/option");
-    this.manufacturerList = page.locator("//select[@id='mid']");
+    this.manufacturer = page.locator("//select[@id='mid']");
     this.autoSearchSubCategory = page.getByLabel("Automatically search sub");
     this.searchInProductDescp = page
       .locator("#advanced-search-block div")

@@ -1,7 +1,6 @@
 import { Page, Locator } from "@playwright/test";
 
 export class loc_homePage {
-
   readonly page: Page;
   readonly registrationPageLink: Locator;
   readonly header_menu: Locator;
@@ -15,6 +14,7 @@ export class loc_homePage {
   readonly btn_subscribe: Locator;
   readonly newsLetterSubscribeMessage: Locator;
   readonly login: Locator;
+  readonly logOut: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -30,5 +30,6 @@ export class loc_homePage {
     this.registrationPageLink = page.locator("//a[@class='ico-register']");
     this.header_menu = page.locator("//ul[@class='top-menu notmobile']/li/a");
     this.newsLetterSubscribeMessage = page.locator("#newsletter-result-block");
+    this.logOut = page.locator("//a[@class='ico-logout']");
   }
 }

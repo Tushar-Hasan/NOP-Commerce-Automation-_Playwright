@@ -26,7 +26,7 @@ export class SearchResult {
     if (!(await this.locs_search.advancedSearchCheckBox.isVisible())) {
       await this.locs_search.advancedSearchCheckBox.check();
     }
-    return await this.locs_search.manufacturer.count();
+    return await this.locs_search.manufacturerList.count();
   }
   async getCategoryNames() {
     let categorySection = this.locs_search.category;
@@ -39,14 +39,14 @@ export class SearchResult {
     return categories;
   }
   async getmanufacturerNames() {
-    let manufacurerSection = this.locs_search.manufacturer;
+    let manufacurerSection = this.locs_search.manufacturerList;
     let manufacturers: string[] = [];
     let numberOfmanufacturers = await manufacurerSection.count();
     for (let i = 0; i < numberOfmanufacturers; i++) {
-      const textContent = await this.locs_search.manufacturer
+      const textContent_ = await this.locs_search.manufacturerList
         .nth(i)
         .textContent();
-      manufacturers.push(textContent?.trim() || "");
+      manufacturers.push(textContent_?.trim() || "");
     }
     return manufacturers;
   }

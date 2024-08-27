@@ -64,5 +64,4 @@ export class homePage {
   async clickOnLogin() {
     await this.loc_homePage.login.click();
   }
-  
 }
