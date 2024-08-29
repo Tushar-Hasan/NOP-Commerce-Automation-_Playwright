@@ -23,6 +23,7 @@ export class locs_registrationPage {
   readonly lnameErrorMessage: Locator;
   readonly confirmationMessage: Locator;
   readonly passwordErrorMessage: Locator;
+
   readonly existingEmailErrMessage: Locator;
   readonly passwordConfirmationErrMessage: Locator;
 

@@ -6,6 +6,7 @@ export class locator_Login {
   readonly login_PopWindow: Locator;
   readonly login_emailInput: Locator;
   readonly login_passwordInput: Locator;
+  readonly forgetPasswordButton: Locator;
   readonly login_RememberMeCheckBox: Locator;
 
   constructor(page: Page) {
@@ -15,5 +16,8 @@ export class locator_Login {
     this.login_PopWindow = page.locator("//button[normalize-space()='Log in']");
     this.login_passwordInput = page.getByLabel("Password:");
     this.logOutBtn = page.locator("//a[@class='ico-logout']");
+    this.forgetPasswordButton = page.locator(
+      "//a[normalize-space()='Forgot password?']"
+    );
   }
 }

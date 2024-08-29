@@ -3,9 +3,9 @@ import { locator_Login } from "../locators/locator_Login"; // Import your locato
 import { utils } from "../utils/utils";
 
 export class LoginPage {
-  private page: Page;
   private locatorLogin: locator_Login;
   private utils_: utils;
+  private page: Page;
 
   constructor(page: Page) {
     this.page = page;
@@ -39,5 +39,10 @@ export class LoginPage {
   async isLoggedIn() {
     let element = this.locatorLogin.logOutBtn;
     return this.utils_.waitForElemetToBeVisible(element);
+  }
+  async getForgetPasswordPageUrl() {
+    await this.locatorLogin.forgetPasswordButton.click();
+    //await element.click()
+    return await this.page.url();
   }
 }
